@@ -1,8 +1,10 @@
 const db = require('../../server/models/sqlModels.js');
 const sqlController = {};
-
-
-
+const { Pool } = require('pg');
+require('dotenv').config();
+const pool = new Pool({
+  connectionString: process.env.PG_URI,
+});
 //get user profile
 sqlController.getProfile = (req, res, next) => {
 
@@ -122,22 +124,43 @@ sqlController.addRat = (req, res, next) => {
 };
 
 //post: create sighting info
-sqlController.addSighting = (req, res, next) => {
+sqlController.addSighting = async (req, res, next) => {
   console.log('entering addSighting')
-  const text = 'INSERT INTO sightings ("rats_id", "users_id", "location", "time", "description") VALUES ($1,$2,$3,$4,$5) RETURNING *;';
+  // app.post('/sighting', async (req, res) => {
+  // const rats_id = Math.floor(Math.random() * 100);
+  // const users_id = Math.floor(Math.random() * 100)
+  try {
+    const { ratName, description, location, time } = req.body;
 
-  const values = [req.body.rats_id, req.body.users_id, req.body.location, 'NOW()', req.body.description];
+    // Insert the new sighting into the database
+    const query = 'INSERT INTO public.sighting (users_id, rats_id, rat_name, description, location, time) VALUES ($1, $2, $3, $4, $5, $6)';
+    const values = [ 1, 1, ratName, description, location, time];
+    await pool.query(query, values);
 
-  db.query(text, values)
-    .then((data) => {
-      console.log("data: ",data.rows)
-      return next();
-    })
-    .catch((err) => {
-      console.log(err);
-      return next(err);
-    });
+    res.status(201).json({ message: 'Sighting added successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error adding sighting' });
+  }
 };
+
+//   const text = 'INSERT INTO sightings ("rats_id", "users_id", "location", "time", "description") VALUES ($1,$2,$3,$4,$5) RETURNING *;';
+
+//   const values = [req.body.rats_id, req.body.users_id, req.body.location, 'NOW()', req.body.description];
+
+//   db.query(text, values)
+//     .then((data) => {
+//       console.log("data: ",data.rows)
+//       return next();
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       return next(err);
+//     });
+// };
+
+
+
 
 // Create sighting alt version, checking for existing rat beforehand
 sqlController.addSightingAlt = (req, res, next) => {

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { updateUser } from '../Slices/userSlice';
 
 export default function Signup() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [password, setPassword] = useState('');
   const [verifyPassword, setVerifyPassword] = useState('');
 

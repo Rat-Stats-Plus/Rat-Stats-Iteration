@@ -15,7 +15,7 @@
       "client"
     ]
   },
-  "author": "jackson",
+  "author": "team",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.20.7",
@@ -23,6 +23,7 @@
     "@prisma/client": "^4.13.0",
     "@react-google-maps/api": "^2.18.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "babel": "^6.23.0",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",

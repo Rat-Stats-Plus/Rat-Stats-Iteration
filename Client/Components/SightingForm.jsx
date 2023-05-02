@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   UPDATE_RAT,
@@ -6,25 +6,41 @@ import {
   UPDATE_USER
 } from '../Slices/sightingSlice';
 
-export default function SightingForm ({username, addToMarkerList, marketListInfo}) {
-  const dispatch = useDispatch();
-  // this are selectors that we use with redux in order to grab the lattitude
-  // and longitude stored in state
-  const sightingState = useSelector((state) => state.sighting.location);
-  const ratName = useSelector((state) => state.sighting.ratName);
-  const description = useSelector((state) => state.sighting.description);
-  const { lat, lng } = sightingState; // extracts them from state
+import axios from 'axios';
 
-  dispatch(UPDATE_USER(useSelector((state) => state.user.username)));
+export default function SightingForm({ username, addToMarkerList, marketListInfo }) {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
+  const sightingState = useSelector((state) => state.sighting);
+  const { ratName, description } = sightingState;
+  const { lat, lng } = sightingState.location;
+
+  const userId = useSelector((state) => state.username); 
+
+  useEffect(() => {
+    dispatch(UPDATE_USER(username));
+  }, [dispatch, username]);
 
   async function onClick(e) {
-    e.preventDefault(); // prevents the page from reloading
-    
-    // TODO: Post sighting to database
-    const locationString = JSON.stringify({lat: lat, lng: lng})
+    e.preventDefault();
+    const sightingData = {
+      users_id: 1,
+      rats_id: 1,
+      ratName,
+      description,
+      location: { lat, lng },
+      time: new Date(),
 
-    addToMarkerList({lat: lat, lng: lng})
+    };
 
+    addToMarkerList({ lat, lng });
+
+    try {
+      await axios.post('/sql/sighting', sightingData);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -41,5 +57,5 @@ export default function SightingForm ({username, addToMarkerList, marketListInfo
         <button className="border shadow text-gray-600" onClick={onClick}>Submit Sighting</button>
       </form>
     </div>
-  )
+  );
 }

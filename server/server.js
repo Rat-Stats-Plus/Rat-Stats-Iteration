@@ -3,12 +3,18 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require ('mongoose');
 const cookieParser = require('cookie-parser');
+const { Pool } = require('pg');
+
 const app = express();
 
 const sqlRouter = require('./routes/sqlRouter.js');
 const oaRouter = require('./routes/oaRouter.js');
 const userRouter = require('./routes/userRouter.js');
 mongoose.connect(process.env.MDB_URI);
+const PG_URI = "postgres://btfrbjza:NjO66Fz-C5GHsPIWsodm5Z6dd7GtPV7n@lallah.db.elephantsql.com/btfrbjza"
+const pool = new Pool({
+  connectionString: PG_URI,
+});
 
 const PORT = 3000;
 
@@ -18,7 +24,9 @@ app.use(express.urlencoded({ extended: true })); // “extended” allows for ri
 app.use(cookieParser());
 
 // Routing for oauth endpoint
-app.use('/oauth', oaRouter);
+app.use('/oauth', oaRouter, (req,res) => {
+  console.log(req.body)
+});
 
 // Routing for sql endpoint to query users, rats,sighting tables
 app.use('/sql', sqlRouter);
@@ -38,6 +46,9 @@ app.use('/user', userRouter);
   for ALL routes, including React Router routes. Express server and React Router endpoints
   must not overlap, or the former will break the latter.
 */
+
+
+
 app.use('/bundle.js', (req, res) => {
   console.log('Serving bundle.js');
   res.status(200).sendFile(path.join(__dirname, '../build/bundle.js'));

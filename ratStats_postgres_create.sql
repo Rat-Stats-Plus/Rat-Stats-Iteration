@@ -51,7 +51,7 @@ SET row_security = off;
 --   OIDS=FALSE
 -- );
 
-
+-- ALTER TABLE sighting ADD COLUMN rat_name VARCHAR(255);
 -- ALTER TABLE public.sighting ADD CONSTRAINT "sighting_fk0" FOREIGN KEY ("users_id") REFERENCES  public.users("_id") ON DELETE CASCADE;
 -- ALTER TABLE public.sighting ADD CONSTRAINT "sighting_fk1" FOREIGN KEY ("rats_id") REFERENCES  public.rats("_id") ON DELETE CASCADE;
 

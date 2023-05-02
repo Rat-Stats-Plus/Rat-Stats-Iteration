@@ -1,27 +1,16 @@
-import React, { useState } from 'react';
-
-// redux
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateUser, updatePassword } from '../Slices/userSlice';
 
-/**
- * 
- * @returns hosts the login page
- *  Has buttons to route user to the signup and the homepage.
- */
 export default function Login() {
   const dispatch = useDispatch();
-  // const [password, setPassword] = useState('')
-  const userState = useSelector((state) => state.user.username);
-  const password = useSelector((state) => state.user.password);
   const navigate = useNavigate();
-  // user12
-  // pw: password123
 
   const handleLoginClick = () => {
-    const username = userState;
-    // navigate('/homepage');
+    const username = dispatch(updateUser(e.target.value));
+    const password = dispatch(updatePassword(e.target.value));
+
     fetch('/user/login/', {
       method: 'POST',
       headers: {
@@ -34,7 +23,6 @@ export default function Login() {
       console.log(parsed);
       if(parsed.username) {
         console.log('Found')
-        // redirect here
         navigate('/homepage');
       }
     })
@@ -48,7 +36,6 @@ export default function Login() {
       <div className="self-center justify-self-center border shadow bg-blue-500 p-8 rounded-xl w-1/2 h-1/2">
         <div className="grid gap-2 justify-center content-center h-full w-full">
           <h1 className="text-5xl font-bold text-gray-700 justify-self-center">Rat Stats</h1>
-          {/*username input*/}
           <div>
             <input type="text" 
             id="username" 
@@ -57,8 +44,6 @@ export default function Login() {
             onChange={(e) => dispatch(updateUser(e.target.value))}
             required/>
           </div>
-
-          {/*password input*/}
           <div>
             <input type="password" 
             id="password" 
@@ -69,10 +54,7 @@ export default function Login() {
           </div>
           <div className="flex flex-row justify-between p-4">
             <a className="border shadow bg-red-500 justify-self-center" href={'/signup'}>Signup</a>
-
-            {/* <button className="border shadow bg-green-500 justify-self-center"  onClick={handleLoginClick} >Login</button> */}
             <button className="border shadow bg-green-500 justify-self-center" onClick={handleLoginClick} >Login</button>
-
             <a className="border shadow bg-green-500 justify-self-center" href={'/oauth/login'}>Login with Tinder</a>
           </div>
         </div>
