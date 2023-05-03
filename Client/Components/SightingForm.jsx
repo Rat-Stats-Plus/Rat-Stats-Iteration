@@ -25,13 +25,11 @@ export default function SightingForm({ username, addToMarkerList, marketListInfo
   async function onClick(e) {
     e.preventDefault();
     const sightingData = {
-      users_id: 1,
-      rats_id: 1,
-      ratName,
-      description,
-      location: { lat, lng },
-      time: new Date(),
-
+      rat_name: ratName,
+      description: description,
+      user_name: userId,
+      lat: lat,
+      lng: lng,
     };
 
     addToMarkerList({ lat, lng });

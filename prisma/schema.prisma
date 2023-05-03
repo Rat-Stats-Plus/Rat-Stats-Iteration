@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int             @id @default(autoincrement())
+  username          String          @unique
+  ssid              String
+  number_sightings  Int             @default(0)
+  profile_picture   String?
+  favorite_rat      String?
+  created_at        DateTime?        @default(now())
+  sightings         Sighting[]
+}
+
+model Rat {
+  id                Int             @id @default(autoincrement())
+  name              String          @unique
+  image             String?       
+  description       String          
+  alive             Boolean?
+  times_sighted     Int             @default(1)
+  sightings         Sighting[] 
+}
+
+model Sighting {    
+  id                 Int            @id @default(autoincrement())
+  user               User           @relation(fields: [userId], references: [id])
+  userId             Int
+  rat                Rat            @relation(fields: [ratId], references: [id])
+  ratId              Int
+  lat                Float
+  lng                Float
+  time               DateTime       @default(now())
+  description        String         
+}

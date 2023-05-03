@@ -7,7 +7,7 @@
     "test": "jest --verbose",
     "start": "NODE_ENV=production nodemon server/server.js",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack serve --open & nodemon server/server.js"
+    "dev": "NODE_ENV=development webpack serve & nodemon server/server.js"
   },
   "nodemonConfig": {
     "ignore": [
@@ -26,6 +26,7 @@
     "axios": "^1.4.0",
     "babel": "^6.23.0",
     "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
     "dotenv": "^16.0.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",

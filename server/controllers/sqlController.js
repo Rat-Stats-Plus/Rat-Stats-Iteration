@@ -2,9 +2,7 @@ const db = require('../../server/models/sqlModels.js');
 const sqlController = {};
 const { Pool } = require('pg');
 require('dotenv').config();
-const pool = new Pool({
-  connectionString: process.env.PG_URI,
-});
+
 //get user profile
 sqlController.getProfile = (req, res, next) => {
 

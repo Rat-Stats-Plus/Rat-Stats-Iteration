@@ -1,16 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updateUser, updatePassword } from '../Slices/userSlice';
 
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const username = useSelector((state) => state.user.username);
+  const password = useSelector((state) => state.user.password);
 
-  const handleLoginClick = () => {
-    const username = dispatch(updateUser(e.target.value));
-    const password = dispatch(updatePassword(e.target.value));
-
+  const handleLoginClick = (e) => {
+    
     fetch('/user/login/', {
       method: 'POST',
       headers: {

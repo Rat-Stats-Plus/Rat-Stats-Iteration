@@ -1,3 +1,10 @@
+/**
+ * These routes are mostly for authentication with mongodb/sessions/Oauth,
+ * We can just leave as is.
+ */
+
+
+
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController.js');

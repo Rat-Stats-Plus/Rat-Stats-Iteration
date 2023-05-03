@@ -1,0 +1,62 @@
+
+# post a user to the db
+post -> /sql/user 
+ * req body: {
+ *  username
+ *  ssid
+ * number_of_sightings    defaults -> 1
+ * profile_picture        optional
+ * favorite_rat           optional  
+ * created_at             Dont enter  
+ * }
+ In response: res.locals.user -> the user object
+
+ # get a user from the db
+ get -> /sql/user
+ * req body: {
+    username
+ }
+ res -> the unique user Object
+
+ # delete a user from the db
+ delete -> /sql/user
+ *req body: {
+ * username
+ * }
+ res -> the user Object
+
+ #
+ #  Sightings
+ #
+ 
+ # post a sighting
+ post -> /sql/sighting
+ * req  body: {
+    user_name
+    rat_name
+    lat
+    lng
+    description
+ }
+response -> sightingObj
+
+# get all sightings 
+get /sql/sighting/all
+  req body: {}
+  response -> sightingObj w/ ratName and username information
+
+# get all user sightings
+get /sql/sighting
+  req body: {
+    username
+  }
+  response -> sightingObj
+
+# delete a particular sighting
+# if this doesn't make sense / work we can do lat/lng
+delete /sql/sighting
+  req body: {
+    id
+  }
+res -> deleted sighting
+
