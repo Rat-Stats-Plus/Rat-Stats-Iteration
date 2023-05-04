@@ -46,42 +46,42 @@ function Homepage() {
   const [rat311List, setRat311List] = useState([]);
   const [markersArray, setMarkersArray] = useState([]);
   const [ratPics, setRatPics] = useState([
-    "https://www.treehugger.com/thmb/Se5V44Wpt4NMz3w2pIR6TCJhLhI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2014__01__Blue-blanket-JF_0-5e09e9b9268f483fbd3f2da2d25418d3.jpg",
-    "https://cdn.pixabay.com/photo/2023/01/12/07/19/rat-7713508_1280.jpg",
-    "https://mystart.com/blog/wp-content/uploads/capture04-1280x800-1.png",
-    "https://images.unsplash.com/photo-1614090332617-e7dd5bd107e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMHJhdHxlbnwwfHwwfHw%3D&w=1000&q=80",
-    "https://cdn1.tedsby.com/storage/3/4/8/348550/cute-mouse-realistic-soft-plush-toy-teddy-stuffed-baby-rat.jpg",
-    "https://cdn.pixabay.com/photo/2023/01/23/15/02/beaver-rat-7738914_1280.jpg", 
-    "https://pixabay.com/photos/mouse-rodent-rat-mice-pest-3194768/",
-    "https://pixabay.com/photos/cute-rodent-mouse-small-animal-3284412/",
-    "https://cdn.pixabay.com/photo/2019/03/23/11/00/rat-4075129_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/03/05/22/19/animal-1239250_1280.jpg",
-    "https://cdn.pixabay.com/photo/2017/07/19/13/36/rat-2519097_1280.jpg",
-    "https://cdn.pixabay.com/photo/2017/07/19/13/36/rat-2519097_1280.jpg",
-    "https://cdn.pixabay.com/photo/2018/07/12/20/24/rat-3534317_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/02/03/17/07/cat-1177483_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/03/05/22/20/animal-1239256_1280.jpg",
-    "https://cdn.pixabay.com/photo/2015/09/28/00/50/roof-rat-961499_1280.jpg",
-    "https://cdn.pixabay.com/photo/2016/05/12/22/19/rats-small-rats-1388830_1280.jpg",
-    "https://www.thesprucepets.com/thmb/MwwLBmk3vAewAbrH0JOC2OVjPEc=/4256x0/filters:no_upscale():strip_icc()/cute-white-rat-120691475-58a5f3ea5f9b58a3c9067915.jpg",
-    "https://laughingsquid.com/wp-content/uploads/2017/07/herjan-flower-e1500646741507.jpg",
-    "https://wallpapers.com/images/high/cute-rat-pictures-zkryt32mqddn2n1r.webp",
-    "https://wallpapers.com/images/high/cute-rat-pictures-zkryt32mqddn2n1r.webp",
-    "https://rlv.zcache.ca/cute_dumbo_rat_stickers-r841151d3194445e5a8330cb28f16deb1_0ugmc_8byvr_630.jpg?view_padding=%5B285%2C0%2C285%2C0%5D",
-    "https://media.istockphoto.com/id/1052049312/photo/cute-white-pet-rat-portrait-with-black-background.jpg?s=612x612&w=0&k=20&c=ra-sBFEKY-MRuSEC3vMFc3sWwjYM3JQl1Bq6lNvjBc4=",
-    "https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_1400/MTk3MDY1NDMyNTM5MDc5OTk5/fancy_rat_types.webp",
-    "https://t4.ftcdn.net/jpg/02/98/83/83/360_F_298838382_eIUHV1oJGgejdgYVhMklu9p3Gax2lSqF.jpg"
-  ])
+    'https://www.treehugger.com/thmb/Se5V44Wpt4NMz3w2pIR6TCJhLhI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2014__01__Blue-blanket-JF_0-5e09e9b9268f483fbd3f2da2d25418d3.jpg',
+    'https://cdn.pixabay.com/photo/2023/01/12/07/19/rat-7713508_1280.jpg',
+    'https://mystart.com/blog/wp-content/uploads/capture04-1280x800-1.png',
+    'https://images.unsplash.com/photo-1614090332617-e7dd5bd107e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y3V0ZSUyMHJhdHxlbnwwfHwwfHw%3D&w=1000&q=80',
+    'https://cdn1.tedsby.com/storage/3/4/8/348550/cute-mouse-realistic-soft-plush-toy-teddy-stuffed-baby-rat.jpg',
+    'https://cdn.pixabay.com/photo/2023/01/23/15/02/beaver-rat-7738914_1280.jpg',
+    'https://pixabay.com/photos/mouse-rodent-rat-mice-pest-3194768/',
+    'https://pixabay.com/photos/cute-rodent-mouse-small-animal-3284412/',
+    'https://cdn.pixabay.com/photo/2019/03/23/11/00/rat-4075129_1280.jpg',
+    'https://cdn.pixabay.com/photo/2016/03/05/22/19/animal-1239250_1280.jpg',
+    'https://cdn.pixabay.com/photo/2017/07/19/13/36/rat-2519097_1280.jpg',
+    'https://cdn.pixabay.com/photo/2017/07/19/13/36/rat-2519097_1280.jpg',
+    'https://cdn.pixabay.com/photo/2018/07/12/20/24/rat-3534317_1280.jpg',
+    'https://cdn.pixabay.com/photo/2016/02/03/17/07/cat-1177483_1280.jpg',
+    'https://cdn.pixabay.com/photo/2016/03/05/22/20/animal-1239256_1280.jpg',
+    'https://cdn.pixabay.com/photo/2015/09/28/00/50/roof-rat-961499_1280.jpg',
+    'https://cdn.pixabay.com/photo/2016/05/12/22/19/rats-small-rats-1388830_1280.jpg',
+    'https://www.thesprucepets.com/thmb/MwwLBmk3vAewAbrH0JOC2OVjPEc=/4256x0/filters:no_upscale():strip_icc()/cute-white-rat-120691475-58a5f3ea5f9b58a3c9067915.jpg',
+    'https://laughingsquid.com/wp-content/uploads/2017/07/herjan-flower-e1500646741507.jpg',
+    'https://wallpapers.com/images/high/cute-rat-pictures-zkryt32mqddn2n1r.webp',
+    'https://wallpapers.com/images/high/cute-rat-pictures-zkryt32mqddn2n1r.webp',
+    'https://rlv.zcache.ca/cute_dumbo_rat_stickers-r841151d3194445e5a8330cb28f16deb1_0ugmc_8byvr_630.jpg?view_padding=%5B285%2C0%2C285%2C0%5D',
+    'https://media.istockphoto.com/id/1052049312/photo/cute-white-pet-rat-portrait-with-black-background.jpg?s=612x612&w=0&k=20&c=ra-sBFEKY-MRuSEC3vMFc3sWwjYM3JQl1Bq6lNvjBc4=',
+    'https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_1400/MTk3MDY1NDMyNTM5MDc5OTk5/fancy_rat_types.webp',
+    'https://t4.ftcdn.net/jpg/02/98/83/83/360_F_298838382_eIUHV1oJGgejdgYVhMklu9p3Gax2lSqF.jpg',
+  ]);
 
   const getRandomRatPic = (ratPics) => {
     const ind = Math.floor(Math.random() * ratPics.length);
     return ratPics[ind];
-  }
+  };
   // get password and username from redux state
   const dispatch = useDispatch();
   const password = useSelector((state) => state.user.password);
   const username = useSelector((state) => state.user.username);
-  const picture = useSelector((state) => state.user.profile_picture)
+  const picture = useSelector((state) => state.user.profile_picture);
 
   // info window state
   const [selectedSighting, setSelectedSighting] = useState(null);
@@ -149,8 +149,6 @@ function Homepage() {
     })();
   }, []);
 
-
-
   /**
    *
    * @param {*} e the event info of the mouse click
@@ -191,9 +189,9 @@ function Homepage() {
       try {
         const getUser = await fetch(
           '/sql/user?' +
-          new URLSearchParams({
-            username: username,
-          }),
+            new URLSearchParams({
+              username: username,
+            }),
           new URLSearchParams({
             username: username,
           }),
@@ -207,7 +205,7 @@ function Homepage() {
         console.log(data);
         if (data === null) {
           // create user
-          console.log('here')
+          console.log('here');
           try {
             const createUser = await fetch('/sql/user', {
               method: 'POST',
@@ -299,29 +297,33 @@ function Homepage() {
                 .then((response) => response.json())
                 .then((ratInfo) => {
                   console.log('ratInfo: ', ratInfo);
-                  const ratPic = getRandomRatPic(ratPics)
-                  console.log(ratPic)
+                  const ratPic = getRandomRatPic(ratPics);
+                  console.log(ratPic);
                   const infoWindow = new window.google.maps.InfoWindow({
                     position: { lat: sighting.lat, lng: sighting.lng },
                     anchor: markersArray.find((marker) => marker.key === id),
                     content: `
-                      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white flex justify-center items-center" style="height: 100%;">
+                      <div class="max-w-sm bg-mirisyellow rounded overflow-hidden shadow-lg bg-white flex justify-center items-center" style="height: 100%;">
                         <div class="p-4 text-center">
                           <div class="space-y-2">
                             <img src="${ratPic}" alt="Cute Rat" style="max-width: 50%; border: 1px solid #ccc; border-radius: 5px; display: block; margin: 0 auto;"></img>
-                            <p class="text-l font-bold uppercase">My name is: ${ratInfo.name}</p>
+                            <p class="text-l font-bold uppercase">My name is: ${
+                              ratInfo.name
+                            }</p>
                             <p class="text-m text-black">Here are some facts about me:</p>
                             <div class="border-2 rounded-sm">
-                              <p class="text-sm text-black">${ratInfo.description}</p>
+                              <p class="text-sm text-black">${
+                                ratInfo.description
+                              }</p>
                             </div>
-                            <p class="text-s italic text-gray-500">I was reported on: ${new Date(sighting.time).toLocaleString()} by user${sighting.userId}</p>
+                            <p class="text-s italic text-gray-500">I was reported on: ${new Date(
+                              sighting.time
+                            ).toLocaleString()} by user${sighting.userId}</p>
                           </div>
                         </div>
                       </div>
                     `,
                   });
-                  
-                  
 
                   if (map && map instanceof window.google.maps.Map) {
                     // Check if map object is available
@@ -360,12 +362,7 @@ function Homepage() {
           scaledSize: new window.google.maps.Size(80, 48),
         }}
         onClick={(e) =>
-          handleMarkerListClick(
-            sighting.id,
-            map,
-            markersArray,
-            infoLocation
-          )
+          handleMarkerListClick(sighting.id, map, markersArray, infoLocation)
         }
       />
     );
@@ -374,13 +371,12 @@ function Homepage() {
 
   const goToHomepage = (e) => {
     Navigate('/leaderboard');
-  }
+  };
 
   return isLoaded ? (
     <div className="flex flex-col justify-center items-center h-screen w-screen p-10 py-3 bg-mirispink">
       {/*Header */}
       <div className="flex flex-row w-screen h-1/6 justify-between items-end p-8 py-5">
-
         <h1 className="text-4xl text-gray-600 text-center font-mono font-extrabold">
           Welcome to Rat Stats Premium
         </h1>

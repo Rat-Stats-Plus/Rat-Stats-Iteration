@@ -116,7 +116,7 @@ export default function Profile() {
       {displayImage && (
         <div className="flex flex-row">
           <input
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="border bg-miriswhite border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Enter profile picture url"
             onChange={(e) => setDisplayUrl(e.target.value)}
           ></input>
@@ -141,8 +141,8 @@ export default function Profile() {
         Created At: {currentState.created_at}
       </h1>
       <h1 className="text-2xl text-gray-600">All User Sightings</h1>
-      <div className="grid grid-cols-4 content-center justify-center items-center h-full">
-        {sightingsComponents}
+      <div className="grid grid-flow-row-dense grid-cols-4 content-center justify-center items-center">
+        <div className="bg-mirisbeige text-center">{sightingsComponents}</div>
       </div>
       <Link
         to="/homepage"
