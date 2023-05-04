@@ -60,19 +60,19 @@ export default function Login() {
           </div>
           <div className="flex flex-row justify-between p-4">
             <a
-              className="border shadow bg-mirisblue font-mono rounded-full justify-self-center hover:bg-mirispink"
+              className="border p-2 shadow bg-mirisblue font-mono rounded-full justify-self-center hover:bg-mirispink"
               href={'/signup'}
             >
               Signup
             </a>
             <button
-              className="border shadow bg-mirisblue font-mono rounded-full justify-self-center hover:bg-mirispink"
+              className="border p-2 shadow bg-mirisblue font-mono rounded-full justify-self-center hover:bg-mirispink"
               onClick={handleLoginClick}
             >
               Login
             </button>
             <a
-              className="border shadow bg-mirisyellow font-mono rounded-full justify-self-center hover:bg-mirispink"
+              className="border p-2 shadow bg-mirisyellow font-mono rounded-full justify-self-center hover:bg-mirispink"
               href={'/oauth/login'}
             >
               Login with Tinder
