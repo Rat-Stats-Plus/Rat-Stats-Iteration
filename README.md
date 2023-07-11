@@ -20,19 +20,6 @@ Tech Stack:
     Github Oauth
 
   Webpack
-  
-Technical Challenges:
 
 
 
-.env needs
-// .env
-MAPS_API= google maps api key
-
-oauth stuff
-CLIENT_ID="4a1606aa68d6e9eb6987"
-CLIENT_SECRET="2d31588f8e3400f366aa14034b13b6e4ca95494f"
-STATE="iWM7YFwpfmCw7f8asY7U3poUoi"
-MDB_URI= mongo database url
-PG_URI= postgresql database url
-MONGO_URI= mongo database url
